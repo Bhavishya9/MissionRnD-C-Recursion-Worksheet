@@ -23,8 +23,17 @@
 */
 #include "stdafx.h"
 
+/* The no of ways to climb n steps is fibonacci number of n+1*/
+int count(int n)
+{
+	if (n <= 1)//base case
+		return n;
+	return count(n - 1) + count(n - 2);//recursive part
+}
 
 int get_steps(int s)
 {
-	return 0;
+	if (s > 25) // if the testcase is not small raise error
+		return -1;
+	return count(s+1);//else return the no of ways of climbing s steps
 }
